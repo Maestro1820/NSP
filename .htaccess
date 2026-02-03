@@ -1,0 +1,15 @@
+RewriteEngine on
+Options +FollowSymlinks
+RewriteBase /
+RewriteRule ^robots.txt$ /robot.php?%{REQUEST_URI}
+
+RewriteEngine on   
+RewriteCond %{ENV:HTTPS} !on
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [NC,R=301,L]
+
+Options +FollowSymLinks
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^nspprpoducts.ru
+RewriteRule (.*) http://www.nspprpoducts.ru/$1 [R=301,L]
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
+RewriteRule ^index\.html$ http://www.nspprpoducts.ru/ [R=301,L]
